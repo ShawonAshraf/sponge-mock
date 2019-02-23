@@ -46,10 +46,11 @@ export default class App extends React.Component {
           source={require('./assets/spongebob.png')}
         />
 
-        <Text>{this.state.mockedText}</Text>
+
         <TextInput
-          style={styles.input}
           placeholder='What you want sponge to mock with?'
+          clearButtonMode='always'
+          autoCorrect={false}
           onChangeText={(text) => {
             this.setState({ text });
             this.mock();
@@ -74,6 +75,8 @@ export default class App extends React.Component {
             });
           }}
         />
+
+        <Text>{this.state.mockedText}</Text>
       </View>
     );
   }
@@ -84,11 +87,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-  },
-  image: {
-    justifyContent: 'center',
-  },
-  input: {
-    height: 40,
   },
 });
