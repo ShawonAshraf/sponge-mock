@@ -46,6 +46,7 @@ export default class App extends React.Component {
           size='xlarge'
           rounded
           source={require('./assets/spongebob.png')}
+          containerStyle={styles.avatar}
         />
 
 
@@ -130,11 +131,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir'
   },
   mockedTextStyle: {
-    fontFamily: 'Avenir'
+    fontFamily: 'Avenir',
+    marginTop: 25,
   },
   actionButtonView: {
+    marginTop: 25,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  avatar: {
+    marginTop: 60,
+    marginBottom: 25,
   }
 });
