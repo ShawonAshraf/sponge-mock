@@ -79,7 +79,7 @@ export default class App extends React.Component {
             }}
             textStyle={{
               fontFamily: 'Avenir',
-              textAlign: 'center'
+              textAlign: 'center',
             }}
             title='Mock!'
             onPress={() => this.mock()}
@@ -105,8 +105,6 @@ export default class App extends React.Component {
             }}
           />
         </View>
-
-
       </View>
     );
   }
@@ -133,6 +131,7 @@ const styles = StyleSheet.create({
   mockedTextStyle: {
     fontFamily: 'Avenir',
     marginTop: 25,
+    fontSize: 25,
   },
   actionButtonView: {
     marginTop: 25,
