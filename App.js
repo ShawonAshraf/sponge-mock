@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
-import { Header } from 'react-native-elements';
+import { Header, Avatar } from 'react-native-elements';
 export default class App extends React.Component {
   // define state
   constructor(props) {
@@ -21,7 +21,13 @@ export default class App extends React.Component {
             }
           }}
         />
-        <Image source={require('./assets/spongebob.png')} style={styles.image} />
+
+        <Avatar
+          size='xlarge'
+          rounded
+          source={require('./assets/spongebob.png')}
+        />
+
         <Text>{this.state.text}</Text>
         <TextInput
           style={styles.input}
