@@ -11,8 +11,11 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={require('./assets/spongebob.png')} style={styles.image} />
-        <Text>There goes sponge!</Text>
-        <TextInput placeholder='What you want sponge to mock with?' />
+        <Text>{this.state.text}</Text>
+        <TextInput
+          style={styles.input}
+          placeholder='What you want sponge to mock with?'
+          onChangeText={(text) => this.setState({ text })} />
       </View>
     );
   }
@@ -23,9 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   image: {
     justifyContent: 'center',
-  }
+  },
+  input: {
+    height: 40,
+  },
 });
