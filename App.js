@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Text } from 'react-native';
-import { Header, Avatar, Button } from 'react-native-elements';
+import { Avatar, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+// spongemockify lib
 import { spongemockify } from 'spongemockify/lib';
+
+// components
+import SpongeHeader from './components/SpongeHeader';
 
 export default class App extends React.Component {
   // define state
@@ -28,19 +32,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header
-          backgroundColor='#fcf644'
-          centerComponent={{
-            text: 'SpongeMock',
-            style: {
-              color: '#fff',
-              fontSize: 35,
-              fontWeight: 'bold',
-              fontFamily: 'Avenir'
-            }
-          }}
-        />
-
+        <SpongeHeader />
         {/* avatar */}
         <Avatar
           size='xlarge'
