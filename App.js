@@ -33,7 +33,7 @@ export default class App extends React.Component {
           centerComponent={{
             text: 'SpongeMock',
             style: {
-              color: 'white',
+              color: '#fff',
               fontSize: 35,
               fontWeight: 'bold',
               fontFamily: 'Avenir'
