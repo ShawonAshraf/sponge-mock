@@ -5,7 +5,14 @@ export default class App extends React.Component {
   // define state
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { text: '', mockedText: '' };
+    // bind to state
+    this.mockify = this.mockify.bind(this);
+  }
+
+  mockify() {
+    let mockedText = this.state.text;
+    this.setState({ mockedText });
   }
   render() {
     return (
@@ -28,11 +35,14 @@ export default class App extends React.Component {
           source={require('./assets/spongebob.png')}
         />
 
-        <Text>{this.state.text}</Text>
+        <Text>{this.state.mockedText}</Text>
         <TextInput
           style={styles.input}
           placeholder='What you want sponge to mock with?'
-          onChangeText={(text) => this.setState({ text })} />
+          onChangeText={(text) => {
+            this.setState({ text });
+            this.mockify();
+          }} />
       </View>
     );
   }
