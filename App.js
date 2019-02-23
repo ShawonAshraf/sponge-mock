@@ -41,7 +41,6 @@ export default class App extends React.Component {
           containerStyle={styles.avatar}
         />
 
-
         <Text style={styles.mockedTextStyle}>{this.state.mockedText}</Text>
 
         {/* for input */}
