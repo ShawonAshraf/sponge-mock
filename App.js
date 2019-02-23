@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
   },
   actionButtonView: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between'
   }
 });
