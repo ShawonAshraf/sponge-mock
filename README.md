@@ -29,6 +29,9 @@ yarn run ios
 yarn run android
 ```
 
+- Let the expo server run and generate a QR code for you. (In case you don't have an emulator / simulator, you can run the app on your device using this QR code. Just scan it.)
+- You have it!
+
 ## Screenshot
 Dedicated to [Raiyan aka Lel Khan](https://github.com/raiyan106). 😂
 
