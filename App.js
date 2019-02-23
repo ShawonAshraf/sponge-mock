@@ -3,21 +3,27 @@ import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { Header, Avatar, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { spongemockify } from 'spongemockify/lib';
+
 export default class App extends React.Component {
   // define state
   constructor(props) {
     super(props);
     this.state = { text: '', mockedText: '' };
     // bind to state
-    this.mockify = this.mockify.bind(this);
+    this.mock = this.mock.bind(this);
   }
 
-  mockify() {
-    let mockedText = this.state.text;
-    this.setState({ mockedText });
-  }
+  mock() {
+    let text = this.state.text;
 
-  // event handlers
+    try {
+      let mockedText = spongemockify(text);
+      this.setState({ mockedText });
+    } catch (e) {
+      this.setState({ mockedText: e.toString() });
+    }
+  }
 
   render() {
     return (
@@ -46,7 +52,7 @@ export default class App extends React.Component {
           placeholder='What you want sponge to mock with?'
           onChangeText={(text) => {
             this.setState({ text });
-            this.mockify();
+            this.mock();
           }} />
 
         <Button
@@ -59,7 +65,7 @@ export default class App extends React.Component {
         <Button
           type='clear'
           icon={
-            <Icon name='cut' color='#fcf644' size={50} />
+            <Icon name='cut' color='#fcf644' size={40} />
           }
           onPress={() => {
             this.setState({
