@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
-import { Header, Avatar } from 'react-native-elements';
+import { Header, Avatar, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default class App extends React.Component {
   // define state
   constructor(props) {
@@ -14,6 +16,9 @@ export default class App extends React.Component {
     let mockedText = this.state.text;
     this.setState({ mockedText });
   }
+
+  // event handlers
+
   render() {
     return (
       <View style={styles.container}>
@@ -22,8 +27,8 @@ export default class App extends React.Component {
           centerComponent={{
             text: 'SpongeMock',
             style: {
-              color: 'black',
-              fontSize: 25,
+              color: 'white',
+              fontSize: 35,
               fontWeight: 'bold',
             }
           }}
@@ -43,6 +48,26 @@ export default class App extends React.Component {
             this.setState({ text });
             this.mockify();
           }} />
+
+        <Button
+          type='clear'
+          icon={
+            <Icon name='copy' color='#fcf644' size={50} />
+          }
+        />
+
+        <Button
+          type='clear'
+          icon={
+            <Icon name='cut' color='#fcf644' size={50} />
+          }
+          onPress={() => {
+            this.setState({
+              text: '',
+              mockedText: ''
+            });
+          }}
+        />
       </View>
     );
   }
