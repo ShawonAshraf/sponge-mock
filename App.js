@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
 import { Header, Avatar, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -36,54 +36,79 @@ export default class App extends React.Component {
               color: 'white',
               fontSize: 35,
               fontWeight: 'bold',
+              fontFamily: 'Avenir'
             }
           }}
         />
 
+        {/* avatar */}
         <Avatar
           size='xlarge'
           rounded
           source={require('./assets/spongebob.png')}
         />
 
+
+        <Text style={styles.mockedTextStyle}>{this.state.mockedText}</Text>
+
+        {/* for input */}
         <View
           style={styles.viewContainer}
         >
           <TextInput
             value={this.state.text}
             style={styles.textInput}
-            placeholder='What you want sponge to mock with?'
+            placeholder='Enter text to mock'
             autoCorrect={false}
-            multiline={true}
+            clearButtonMode='always'
             accessibilityLabel='Enter text to mockify here!'
             onChangeText={(text) => {
               this.setState({ text });
-              this.mock();
             }}
           />
         </View>
 
-        <Button
-          type='clear'
-          icon={
-            <Icon name='copy' color='#fcf644' size={50} />
-          }
-        />
+        {/* View 1 for buttons */}
+        <View>
+          <Button
+            type='solid'
+            buttonStyle={{
+              backgroundColor: '#fcf644',
+            }}
+            textStyle={{
+              fontFamily: 'Avenir',
+              textAlign: 'center'
+            }}
+            title='Mock!'
+            onPress={() => this.mock()}
+          />
+        </View>
 
-        <Button
-          type='clear'
-          icon={
-            <Icon name='cut' color='#fcf644' size={40} />
-          }
-          onPress={() => {
-            this.setState({
-              text: '',
-              mockedText: ''
-            });
-          }}
-        />
+        {/* View 2 for buttons */}
+        <View>
 
-        <Text>{this.state.mockedText}</Text>
+          <Button
+            type='clear'
+            icon={
+              <Icon name='copy' color='#fcf644' size={50} />
+            }
+          />
+
+          <Button
+            type='clear'
+            icon={
+              <Icon name='cut' color='#fcf644' size={40} />
+            }
+            onPress={() => {
+              this.setState({
+                text: '',
+                mockedText: ''
+              });
+            }}
+          />
+        </View>
+
+
       </View>
     );
   }
@@ -105,5 +130,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     margin: 10,
     borderRadius: 20,
+    fontFamily: 'Avenir'
+  },
+  mockedTextStyle: {
+    fontFamily: 'Avenir'
   }
 });
