@@ -5122,6 +5122,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+spongemockify@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/spongemockify/-/spongemockify-2.0.0.tgz#4447aacd601486eaf5344d7a15092c983e36ca36"
+  integrity sha512-9r7HRZoJ2CZ1Yd68Vc0Isxt5nQ4J0TtYTpz2GmiA/Y/8Uq8H4iq3LdmDkmxC+WZLzKH1ZjizXWrtFexx0Wzi2Q==
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
