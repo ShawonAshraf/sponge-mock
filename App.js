@@ -30,14 +30,19 @@ export default class App extends React.Component {
       let mockedText = spongemockify(text);
       this.setState({ mockedText });
     } catch (e) {
-      this.setState({ mockedText: e.toString() });
+      this.setState({ mockedText: '' });
+      alert('Error pasting from clipboard');
     }
   }
 
   // copy paste functionality
   async copyMockedTextToClipBoard() {
     const mockedText = this.state.mockedText;
-    await Clipboard.setString(mockedText);
+    if (mockedText) {
+      await Clipboard.setString(mockedText);
+    } else {
+      alert('You entered nothing, Bob!');
+    }
   }
 
   async pasteTextFromClipBoard() {
@@ -58,7 +63,10 @@ export default class App extends React.Component {
           containerStyle={styles.avatar}
         />
 
-        <Text style={styles.mockedTextStyle}>{this.state.mockedText}</Text>
+        <View style={styles.viewContainer}>
+          <Text style={styles.mockedTextStyle}>{this.state.mockedText}</Text>
+        </View>
+
 
         {/* for input */}
         <View
