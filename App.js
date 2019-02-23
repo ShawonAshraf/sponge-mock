@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Text } from 'react-native';
+import { StyleSheet, View, TextInput, Text, Clipboard } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -16,10 +16,13 @@ export default class App extends React.Component {
     this.state = { text: '', mockedText: '' };
     // bind to state
     this.mock = this.mock.bind(this);
+    this.pasteTextFromClipBoard = this.pasteTextFromClipBoard.bind(this);
+    this.copyMockedTextToClipBoard = this.copyMockedTextToClipBoard.bind(this);
   }
 
+  // mock text from state
   mock() {
-    let text = this.state.text;
+    const text = this.state.text;
 
     try {
       let mockedText = spongemockify(text);
@@ -29,6 +32,18 @@ export default class App extends React.Component {
     }
   }
 
+  // copy paste functionality
+  async copyMockedTextToClipBoard() {
+    const mockedText = this.state.mockedText;
+    await Clipboard.setString(mockedText);
+  }
+
+  async pasteTextFromClipBoard() {
+    const teextFromClipBoard = await Clipboard.getString();
+    this.setState({ text: textFromClipBoard });
+  }
+
+  // render
   render() {
     return (
       <View style={styles.container}>
@@ -73,7 +88,7 @@ export default class App extends React.Component {
               textAlign: 'center',
             }}
             title='Mock!'
-            onPress={() => this.mock()}
+            onPress={this.mock}
           />
 
           <Button
@@ -81,6 +96,15 @@ export default class App extends React.Component {
             icon={
               <Icon name='copy' color='#fcf644' size={50} />
             }
+            onPress={this.copyMockedTextToClipBoard}
+          />
+
+          <Button
+            type='clear'
+            icon={
+              <Icon name='paste' color='#fcf644' size={50} />
+            }
+            onPress={this.pasteTextFromClipBoard}
           />
 
           <Button
