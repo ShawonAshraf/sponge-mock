@@ -8,6 +8,8 @@ import { spongemockify } from 'spongemockify/lib';
 
 // components
 import SpongeHeader from './components/SpongeHeader';
+import ActionIconButton from './components/ActionIconButton';
+
 
 export default class App extends React.Component {
   // define state
@@ -39,7 +41,7 @@ export default class App extends React.Component {
   }
 
   async pasteTextFromClipBoard() {
-    const teextFromClipBoard = await Clipboard.getString();
+    const textFromClipBoard = await Clipboard.getString();
     this.setState({ text: textFromClipBoard });
   }
 
@@ -91,28 +93,28 @@ export default class App extends React.Component {
             onPress={this.mock}
           />
 
-          <Button
-            type='clear'
-            icon={
-              <Icon name='copy' color='#fcf644' size={50} />
-            }
-            onPress={this.copyMockedTextToClipBoard}
+          <ActionIconButton
+            buttonType='clear'
+            buttonName='copy'
+            color='#fcf644'
+            size={50}
+            handler={this.copyMockedTextToClipBoard}
           />
 
-          <Button
-            type='clear'
-            icon={
-              <Icon name='paste' color='#fcf644' size={50} />
-            }
-            onPress={this.pasteTextFromClipBoard}
+          <ActionIconButton
+            buttonType='clear'
+            buttonName='paste'
+            color='#fcf644'
+            size={50}
+            handler={this.pasteTextFromClipBoard}
           />
 
-          <Button
-            type='clear'
-            icon={
-              <Icon name='cut' color='#fcf644' size={40} />
-            }
-            onPress={() => {
+          <ActionIconButton
+            buttonType='clear'
+            buttonName='cut'
+            color='#fcf644'
+            size={50}
+            handler={() => {
               this.setState({
                 text: '',
                 mockedText: ''
