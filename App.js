@@ -68,8 +68,9 @@ export default class App extends React.Component {
           />
         </View>
 
-        {/* View 1 for buttons */}
-        <View>
+
+        {/* View for buttons */}
+        <View style={styles.actionButtonView}>
           <Button
             type='solid'
             buttonStyle={{
@@ -82,10 +83,6 @@ export default class App extends React.Component {
             title='Mock!'
             onPress={() => this.mock()}
           />
-        </View>
-
-        {/* View 2 for buttons */}
-        <View>
 
           <Button
             type='clear'
@@ -134,5 +131,9 @@ const styles = StyleSheet.create({
   },
   mockedTextStyle: {
     fontFamily: 'Avenir'
+  },
+  actionButtonView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 });
