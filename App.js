@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { Header } from 'react-native-elements';
 
 export default class App extends React.Component {
   // define state
@@ -10,6 +11,11 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header
+          leftComponent={{ icon: 'menu', color: '#fff' }}
+          centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
+          rightComponent={{ icon: 'home', color: '#fff' }}
+        />
         <Image source={require('./assets/spongebob.png')} style={styles.image} />
         <Text>{this.state.text}</Text>
         <TextInput
