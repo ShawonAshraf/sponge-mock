@@ -4,6 +4,9 @@ A cross platform mobile application based on [spongemockify](https://github.com/
 ## Download
 **Android APK(signed) :** [https://expo.io/artifacts/4169ae2e-d9e9-4e3b-b391-464e2ef38b14](https://expo.io/artifacts/4169ae2e-d9e9-4e3b-b391-464e2ef38b14)
 
+
+**iOS:** For some voodoo magical reasons, expo build process doesn't work with 2FA, so couldn't build.
+
 ## App features
 - Click on `Mock!` button to get the mocked text.
 - You can then copy the mocked text to clipboard.
